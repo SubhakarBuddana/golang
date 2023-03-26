@@ -1,11 +1,16 @@
 package main
-import(
-	"net/http"
+
+import (
 	"log"
+	"net/http"
+
+	"github.com/SubhakarBuddana/golang/userservice"
 )
-func Main(){
-	http.HandleFunc("/sign-up",signup)
-    http.HandleFunc("/login",login)
-    http.HandleFunc("/changepassword",chanpassword)
-    log.Fatal(http.ListenAndServe(":8080", nil))
+
+func main() {
+
+	http.HandleFunc("/sign-up", userservice.Signup)
+	http.HandleFunc("/login", userservice.Login)
+	http.HandleFunc("/changepassword", userservice.Chanpassword)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
